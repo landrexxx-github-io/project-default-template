@@ -1,0 +1,41 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@{
+	var token = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="csrf_token" content="@token">
+	<title>@ViewData["Title"] | Company Name</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="~/css/vendor.min.css"/>
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+</head>
+<body>
+<div class="page">
+	@{
+		await Html.RenderPartialAsync("_AsidePartial.cshtml");
+		await Html.RenderPartialAsync("_HeaderPartial.cshtml");
+	}
+
+	<main class="page-wrapper" role="main">
+		@RenderBody()
+	</main>
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="~/js/vendor.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-Token': $("meta[name='csrf_token']").attr('content')
+		}
+	})
+</script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

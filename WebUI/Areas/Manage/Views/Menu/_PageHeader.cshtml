@@ -1,0 +1,100 @@
+<div class="modal modal-blur fade" id="modalMenuItem" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<form id="frmMenuItem">
+				@Html.AntiForgeryToken()
+				<input type="hidden" id="inpMenuId" class="form-control">
+				<div class="modal-header">
+					<h5 class="modal-title">Create New Menu Entry</h5>
+					<button type="button" class="btn-close" onclick="cancelModal(this)"></button>
+				</div>
+				<div class="modal-body">
+					<div class="py-1 row">
+						<label class="form-label col-3 d-flex justify-content-end">Category: <span class="text-danger px-1">*</span></label>
+						<div class="col-8">
+							<select id="selMenuCategory" class="form-control form-select">
+								<option value=""></option>
+								<option value="1">Main menu</option>
+								<option value="2">Sub menu</option>
+								<option value="3">Sub level menu</option>
+							</select>
+							@* <small class="form-hint"> *@
+							@* 	Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji. *@
+							@* </small> *@
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-10">
+							<hr class="my-3" style="border: none; border-bottom: 1px dashed">
+						</div>
+					</div>
+					<div id="menuItemFormFields"></div>
+					<div class="py-1 row">
+						<label class="form-label col-3 d-flex justify-content-end align-items-center">Seq. no.: <span class="text-danger px-1">*</span></label>
+						<div class="col-4">
+							<input type="text" class="form-control" name="SeqNo" placeholder="">
+						</div>
+					</div>
+					<div class="py-1 row">
+						<label class="form-label col-3 d-flex justify-content-end align-items-center">Status: <span class="text-danger px-1">*</span></label>
+						<div class="col-4">
+							<select name="IsActive" id="" class="form-select form-control">
+								<option value="Y">Active</option>
+								<option value="N">Inactive</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="javascript:void(0)" class="btn btn-link link-secondary btn-3" onclick="cancelModal(this)">
+						Cancel
+					</a>
+					<a href="#" class="btn btn-primary btn-5" data-bs-dismiss="modal">
+						Save changes
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page header -->
+<div class="page-header d-print-none">
+	<div class="container-xl">
+		<div class="row g-2 align-items-center">
+			<div class="col">
+				<!-- Page pre-title -->
+				<div class="page-pretitle">
+					Overview
+				</div>
+				<h2 class="page-title">
+					Menu
+				</h2>
+			</div>
+			<!-- Page title actions -->
+			<div class="col-auto ms-auto d-print-none">
+				<div class="btn-list">
+					<a href="javascript:void(0)" class="btn btn-primary btn-5 d-none d-sm-inline-block" onclick="showModalCreateMenuItem(this)">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						     class="icon icon-2">
+							<path d="M12 5l0 14"/>
+							<path d="M5 12l14 0"/>
+						</svg>
+						Create new menu
+					</a>
+					<a href="#" class="btn btn-primary btn-6 d-sm-none btn-icon" data-bs-toggle="modal"
+					   data-bs-target="#modal-report" aria-label="Create new report">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						     class="icon icon-2">
+							<path d="M12 5l0 14"/>
+							<path d="M5 12l14 0"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

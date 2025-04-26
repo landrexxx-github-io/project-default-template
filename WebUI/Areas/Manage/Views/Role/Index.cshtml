@@ -1,0 +1,16 @@
+@model dynamic
+
+@{
+	ViewBag.Title = "Role";
+	Layout = "_MainLayout";
+}
+
+@{
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/Role/_PageHeader.cshtml");
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/Role/_PageContent.cshtml");
+}
+
+@section Scripts
+{
+	<script src="~/page/main/dashboard.js"></script>
+}

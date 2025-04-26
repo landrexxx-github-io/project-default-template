@@ -1,0 +1,16 @@
+@model dynamic
+
+@{
+	ViewBag.Title = "Menu";
+	Layout = "_MainLayout";
+}
+
+@{
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/Menu/_PageHeader.cshtml");
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/Menu/_PageContent.cshtml");
+}
+
+@section Scripts
+{
+	<script src="~/page/manage/menu.js"></script>
+}

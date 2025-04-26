@@ -1,0 +1,46 @@
+@model dynamic
+
+@{
+	ViewBag.Title = "Login";
+	Layout = "_NoMenuLayout";
+}
+
+<div class="row g-0 flex-fill">
+	<div class="col-12 col-lg-6 col-xl-8 d-none d-lg-block">
+		<!-- Photo -->
+		<div class="bg-cover h-100 min-vh-100" style="background-image: url(https://images.unsplash.com/photo-1704440286929-c5b8025d10ad?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"></div>
+	</div>
+	<div class="col-12 col-lg-6 col-xl-4 d-flex flex-column justify-content-center">
+		<div style="background-image: url(https://images.unsplash.com/photo-1734630630491-458df4f38213?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); background-size: cover; background-position: center; width: 100%;"></div>
+		<div class="container container-tight my-5 px-lg-5">
+			<div class="card-body px-3">
+				<h2 class="text-center mb-3">
+					Login to your account
+				</h2>
+				<hr/>
+				<p class="h3 text-center fw-normal mb-4">Please enter your username and password to login.</p>
+				<form action="/" method="get" autocomplete="off">
+					@Html.AntiForgeryToken()
+					<div class="mb-3">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control" id="floating-input" value="" placeholder="Juan Dela Cruz" required autocomplete="off">
+							<label for="floating-input"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4"/><path d="M15 19l2 2l4 -4"/></svg> Username</label>
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control" id="floating-password" value="" placeholder="DE-XXX..." required autocomplete="off">
+							<label for="floating-password"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"/><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"/><path d="M8 11v-4a4 4 0 1 1 8 0v4"/></svg> Password</label>
+						</div>
+					</div>
+					<hr/>
+					<div class="d-grid">
+						<button type="submit" class="btn btn-lg btn-danger rounded-2">Login</button>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer footer footer-transparent px-3 text-center">
+				<p class="mb-0">Developed by Landrex O. Rebuera</p>
+				<p>&copy; @DateTime.Now.Year All Rights Reserved</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+.form-control:focus {
+    box-shadow: none;
+    border: 1px red solid;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px dashed;
+}

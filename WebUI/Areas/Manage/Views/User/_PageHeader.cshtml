@@ -1,0 +1,101 @@
+<div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Create New Account Entry</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="mb-2 row">
+					<label class="form-label col-3 text-end">Employee: <span class="text-danger">*</span></label>
+					<div class="col-8">
+						<input type="text" class="form-control" name="example-text-input"
+						       placeholder="Search employee name">
+					</div>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div class="mb-2 row">
+					<label class="form-label col-3 text-end">Username: <span class="text-danger">*</span></label>
+					<div class="col-8">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label class="form-label col-3 text-end">Password: <span class="text-danger">*</span></label>
+					<div class="col-8">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label class="form-label col-3 text-end">Role: <span class="text-danger">*</span></label>
+					<div class="col-8">
+						<select name="" id="" class="form-control form-select">
+							<option value="">Active</option>
+							<option value="">Inactive</option>
+						</select>
+					</div>
+				</div>
+				<div class="mb-2 row">
+					<label class="form-label col-3 text-end">Status: <span class="text-danger">*</span></label>
+					<div class="col-8">
+						<select name="" id="" class="form-control form-select">
+							<option value="">Active</option>
+							<option value="">Inactive</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-link link-secondary btn-3" data-bs-dismiss="modal">
+					Cancel
+				</a>
+				<a href="#" class="btn btn-primary btn-5" data-bs-dismiss="modal">
+					Save changes
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Page header -->
+<div class="page-header d-print-none">
+	<div class="container-xl">
+		<div class="row g-2 align-items-center">
+			<div class="col">
+				<!-- Page pre-title -->
+				<div class="page-pretitle">
+					Overview
+				</div>
+				<h2 class="page-title">
+					User account
+				</h2>
+			</div>
+			<!-- Page title actions -->
+			<div class="col-auto ms-auto d-print-none">
+				<div class="btn-list">
+					<a href="#" class="btn btn-primary btn-5 d-none d-sm-inline-block" data-bs-toggle="modal"
+					   data-bs-target="#modal-report">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						     class="icon icon-2">
+							<path d="M12 5l0 14"/>
+							<path d="M5 12l14 0"/>
+						</svg>
+						Create new account
+					</a>
+					<a href="#" class="btn btn-primary btn-6 d-sm-none btn-icon" data-bs-toggle="modal"
+					   data-bs-target="#modal-report" aria-label="Create new report">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+						     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						     class="icon icon-2">
+							<path d="M12 5l0 14"/>
+							<path d="M5 12l14 0"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

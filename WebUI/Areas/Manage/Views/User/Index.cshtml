@@ -1,0 +1,16 @@
+@model dynamic
+
+@{
+	ViewBag.Title = "Users";
+	Layout = "_MainLayout";
+}
+
+@{
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/User/_PageHeader.cshtml");
+	await Html.RenderPartialAsync($"~/Areas/Manage/Views/User/_PageContent.cshtml");
+}
+
+@section Scripts
+{
+	<script src="~/page/main/dashboard.js"></script>
+}
