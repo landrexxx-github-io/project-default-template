@@ -2,10 +2,10 @@ using System.Text.Json.Serialization;
 
 namespace Domain.Entities;
 
-public class UserAccount
+public class AppUser
 {
-    [JsonPropertyName("user_account_id")]
-    public int UserAccountId { get; set; }
+    [JsonPropertyName("user_id")]
+    public int UserId { get; set; }
     
     [JsonPropertyName("username")]
     public string Username { get; set; } = null!;

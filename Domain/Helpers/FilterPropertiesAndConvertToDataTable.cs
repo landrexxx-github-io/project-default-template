@@ -1,5 +1,5 @@
 using System.Data;
-using Domain.Filters;
+using Domain.Attributes;
 using FastMember;
 
 namespace Domain.Helpers;

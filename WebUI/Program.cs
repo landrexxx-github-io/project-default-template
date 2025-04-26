@@ -1,4 +1,5 @@
 using Financev1.Exceptions;
+using Financev1.Middlewares;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +12,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddConfiguration(builder.Configuration);
 builder.Services.AddAuthInfrastructure();
 builder.Services.AddManageInfrastructure();
-builder.Services.AddCustomExceptionHandler();
+// builder.Services.AddCustomExceptionHandler();
 
 // sets the route to lower cases
 builder.Services.Configure<RouteOptions>(options =>
@@ -20,6 +21,8 @@ builder.Services.Configure<RouteOptions>(options =>
     options.AppendTrailingSlash = false;
     options.LowercaseQueryStrings = true;
 });
+
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -31,6 +34,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseGlobalExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

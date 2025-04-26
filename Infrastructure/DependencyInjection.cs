@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Application;
 using Application.Menu;
 using Domain.Entities;
+using Domain.DTO;
 using Infrastructure.Menu;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;

@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using Domain.Filters;
+using Domain.Attributes;
 
 namespace Domain.Entities;
 

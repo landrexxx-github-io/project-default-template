@@ -1,7 +1,9 @@
 using System.Data;
 using Application;
 using Dapper;
+using Domain.DTO;
 using Domain.Entities;
+using Domain.Enums;
 using Microsoft.Data.SqlClient;
 
 namespace Infrastructure.Menu;
@@ -41,8 +43,7 @@ public class MenuRepository(ConfigContext configContext) : IGenericRepository<Ap
             Rows = rows!,
             TotalPages = firstRow?.TotalPages ?? 0,
             TotalRecords = firstRow?.TotalRecords ?? 0,
-            PageNumber = page,
-            Message = rows!.Count > 0 ? "Success" : "Failure"
+            PageNumber = page
         };
     }
 
@@ -72,8 +73,7 @@ public class MenuRepository(ConfigContext configContext) : IGenericRepository<Ap
             Rows = [results!],
             TotalPages = 1,
             TotalRecords = 1,
-            PageNumber = 1,
-            Message = results != null ? "Success" : "Failure"
+            PageNumber = 1
         };
     }
 
@@ -130,7 +130,8 @@ public class MenuRepository(ConfigContext configContext) : IGenericRepository<Ap
         {
             RowsAffected = rowsAffected,
             Action = ActionType.Delete.ToString(),
-            Message = rowsAffected > 0 ? "Success" : "Failed",
+            Status = rowsAffected > 0 ? "Success" : "Failed",
+            Message = rowsAffected > 0 ? "Menu created successfully" : "Failed to create menu",
         };
     }
 

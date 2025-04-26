@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Domain.Entities;
+namespace Domain.DTO;
 
 public class PostResponse<T>
 {
@@ -9,6 +9,9 @@ public class PostResponse<T>
     
     [JsonPropertyName("action")]
     public string Action { get; set; }
+
+    [JsonPropertyName("status")]
+    public string Status { get; set; }
     
     [JsonPropertyName("message")]
     public string Message { get; set; }
