@@ -1,21 +1,36 @@
 using System.Data;
 using Application;
 using Application.User;
+using Dapper;
 using Domain.DTO;
 using Domain.Entities;
+using Microsoft.Data.SqlClient;
 
 namespace Infrastructure.User;
 
-public class UserRepository<T> : IGenericRepository<T>, IUserRepository<T> 
+public class UserRepository<T>(ConfigContext configContext) : IGenericRepository<T>, IUserRepository<T> 
 {
-    public async Task<FetchResponse<T>> GetByEmailAsync()
+    private readonly ConfigContext _configContext = configContext;
+    
+    public async Task<FetchResponse<T>> GetByUsernameOrEmailAsync(string usernameOrEmail)
     {
-        throw new NotImplementedException();
-    }
+        await using var connection = new SqlConnection(_configContext.ConnectionString);
+        
+        await connection.OpenAsync();
+        
+        const string storedProcedure = "GetUserByUsernameOrEmail";
+        var parameters = new
+        {
+            UsernameOrEmail = usernameOrEmail,
+        };
 
-    public async Task<FetchResponse<T>> GetByUserNameAsync()
-    {
-        throw new NotImplementedException();
+        var results = await connection.QueryAsync<T>(
+            storedProcedure,
+            parameters,
+            commandType: CommandType.StoredProcedure
+        );
+
+        return new FetchResponse<T>();
     }
 
     public async Task<PostResponse<T>> UpdatePasswordAsync(int userId, string newPassword)

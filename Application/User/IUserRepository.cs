@@ -4,7 +4,6 @@ namespace Application.User;
 
 public interface IUserRepository<T>
 {
-    Task<FetchResponse<T>> GetByEmailAsync();
-    Task<FetchResponse<T>> GetByUserNameAsync();
+    Task<FetchResponse<T>> GetByUsernameOrEmailAsync(string usernameOrEmail);
     Task<PostResponse<T>> UpdatePasswordAsync(int userId, string newPassword);
 }

@@ -1,9 +1,13 @@
+using Application.User;
 using Domain.DTO;
+using Domain.Entities;
 
 namespace Application.Auth;
 
-public class AuthService : IAuthService
+public class AuthService(IUserRepository<AppUser> userRepository) : IAuthService
 {
+    private readonly IUserRepository<AppUser> _userRepository = userRepository;
+    
     public async Task<AuthResponse> RegisterAsync(string username, string password)
     {
         throw new NotImplementedException();
@@ -11,7 +15,12 @@ public class AuthService : IAuthService
 
     public async Task<AuthResponse> LoginAsync(string username, string password)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            return AuthResponse.Failure("Username or password are required.");
+
+        var user = await _userRepository.GetByUsernameOrEmailAsync(username);
+
+        return new AuthResponse();
     }
 
     public async Task<AuthResponse> RefreshTokenAsync(string token)

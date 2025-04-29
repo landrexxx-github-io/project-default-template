@@ -17,5 +17,5 @@ public class FetchResponse<T>
     public IEnumerable<T> Rows { get; set; } = [];
 
     [JsonPropertyName("message")] 
-    public string Message => $"Successfully fetched {TotalRecords} rows of records.";
+    public string Message { get; set; }
 }
