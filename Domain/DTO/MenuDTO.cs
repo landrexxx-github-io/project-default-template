@@ -1,11 +1,10 @@
 using System.Text.Json.Serialization;
 using Domain.Attributes;
 
-namespace Domain.Entities;
+namespace Domain.DTO;
 
-public class AppMenu
+public class MenuDTO
 {
-    
     public int? MenuId { get; set; }
     
     [JsonPropertyName("parent_menu_id")]
@@ -18,7 +17,6 @@ public class AppMenu
     public string MenuIcon { get; set; } = null!;
     
     [JsonPropertyName("menu_url")]
-    [ExcludedFromDataTable]
     public string MenuUrl { get; set; } = null!;
     
     [JsonPropertyName("is_active")]
@@ -32,4 +30,5 @@ public class AppMenu
     
     [ExcludedFromDataTable]
     public int TotalPages { get; set; }
+
 }
