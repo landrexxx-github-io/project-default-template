@@ -7,11 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Auth\" />
-      <Folder Include="User\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Dapper" Version="2.1.66" />
       <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
       <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
@@ -27,6 +22,9 @@
       </Reference>
       <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
         <HintPath>..\..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\8.0.11\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Options">
+        <HintPath>..\..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\8.0.11\Microsoft.Extensions.Options.dll</HintPath>
       </Reference>
     </ItemGroup>
 

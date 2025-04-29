@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Domain.Entities;
+namespace Domain.DTO;
 
 public class SelectOption
 {

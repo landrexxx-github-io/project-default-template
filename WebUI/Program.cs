@@ -1,4 +1,5 @@
 using Financev1.Exceptions;
+using Financev1.Middlewares;
 using Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,11 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 
 // Add dependencies
-builder.Services.AddConfiguration(builder.Configuration); // sets the configuration userid & connection string which will be used globally
-builder.Services.AddCustomExceptionHandler(); // custom exception will be implemented here
-
-builder.Services.AddAuthInfrastructure(); // Authentication implementation here
-builder.Services.AddManageInfrastructure(); // Manage functionality like user account creation, roles, 
+builder.Services.AddConfiguration(builder.Configuration);
+builder.Services.AddAuthInfrastructure();
+builder.Services.AddManageInfrastructure();
+builder.Services.AddCustomExceptionHandler();
 
 // sets the route to lower cases
 builder.Services.Configure<RouteOptions>(options =>
@@ -21,6 +21,8 @@ builder.Services.Configure<RouteOptions>(options =>
     options.AppendTrailingSlash = false;
     options.LowercaseQueryStrings = true;
 });
+
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
@@ -32,6 +34,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseGlobalExceptionHandler();
 app.UseHttpsRedirection();
 app.UseStaticFiles();

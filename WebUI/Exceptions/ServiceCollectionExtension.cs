@@ -1,3 +1,5 @@
+using Financev1.Middlewares;
+
 namespace Financev1.Exceptions;
 
 public static class ServiceCollectionExtension

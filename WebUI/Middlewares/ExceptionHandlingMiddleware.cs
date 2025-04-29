@@ -1,4 +1,6 @@
-namespace Financev1.Exceptions;
+using Financev1.Exceptions;
+
+namespace Financev1.Middlewares;
 
 public class ExceptionHandlingMiddleware(
     RequestDelegate next, 
